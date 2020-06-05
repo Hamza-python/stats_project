@@ -10,7 +10,8 @@ def read_file(filename):
 
 # sort the given data
 def sorting(data):
-    return data.sort()
+    data.sort()
+    return data
 
 # This function expects a sorted input list
 def smallest_number(input):
@@ -33,12 +34,12 @@ def calculate_mean(data):
     # find mean
     Sum = sum(data)
     xbar = Sum/len(data)
-    return str(xbar)
+    return xbar
 
 def calculate_variance(data, mean):
     # find variance
     Var = sum((x - mean) ** 2 for x in data) / len(data)
-    return str(Var)
+    return Var
 
 def calculate_std_dev(variance):
     # find standard deviation
@@ -50,9 +51,10 @@ def print_data(message, data):
     print(message+data)
 
 if __name__ == '__main__':
-    project_file = read_file("/Users/ms2051/Desktop/input.txt")
+    project_file = read_file("input.txt")
     # tokenize, split
     input = project_file.split()
+    # input.sort()
     input = sorting(input)
 
     # Calculate smallest and greatest numbers and print it
@@ -63,11 +65,11 @@ if __name__ == '__main__':
 
     # Calculate mean and print it
     mean = calculate_mean(input)
-    print_data("Mean is ", calculate_mean(mean))
+    print_data("Mean is ", str(mean))
 
     # calculate variance and print it
     variance = calculate_variance(input, mean)
-    print_data("Variance is ", variance)
+    print_data("Variance is ", str(variance))
 
     # Caluclate standard deviation and print it
-    print_data("Standard Deviation is ", calculate_std_dev(variance))
+    print_data("Standard Deviation is ", str(calculate_std_dev(variance)))
